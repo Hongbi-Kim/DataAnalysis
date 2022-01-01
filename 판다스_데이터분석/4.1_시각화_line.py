@@ -78,7 +78,7 @@ plt.annotate('',
              )
 
 # 주석 표시 - 텍스트
-plt.annotate('인구 이동 증가(1970-1955)',
+plt.annotate('인구 이동 증가(1970-1995)',
              xy = (10,350000),   
              rotation = 25,
              va = 'baseline',
@@ -86,7 +86,7 @@ plt.annotate('인구 이동 증가(1970-1955)',
              fontsize=15
              )
 
-plt.annotate('인구 이동 감소(1955-2017)',
+plt.annotate('인구 이동 감소(1995-2017)',
              xy = (40,460000),   
              rotation = -11,
              va = 'baseline',
@@ -137,6 +137,72 @@ ax.tick_params(axis='x', labelsize=10) # 축 눈금 라벨 크기
 ax.tick_params(axis='y', labelsize=10)
 plt.show()
 
+# 같은 화면에 그래프 추가
+col_years = list(map(str,range(1970,2018)))
+df_3 = df_seoul.loc[['충청남도','경상북도','강원도'],col_years]
 
+plt.style.use('ggplot')
+fig = plt.figure(figsize=(20,5))
+ax = fig.add_subplot(1,1,1)
 
+ax.plot(col_years, df_3.loc['충청남도',:],marker='o', markerfacecolor='green',
+        markersize=10,color='olive',linewidth=2,label='서울 -> 충남')
+ax.plot(col_years, df_3.loc['경상북도',:],marker='o', markerfacecolor='blue',
+        markersize=10,color='skyblue',linewidth=2,label='서울 -> 경북')
+ax.plot(col_years, df_3.loc['강원도',:],marker='o', markerfacecolor='red',
+        markersize=10,color='magenta',linewidth=2,label='서울 -> 강원')
+
+ax.legend(loc='best')
+
+ax.set_title('서울 -> 충남, 경북, 강원 인구 이동', size=20)
+ax.set_xlabel('기간',size=12)
+ax.set_ylabel('이동 인구수', size=12)
+ax.set_xticklabels(col_years,rotation=90)
+ax.tick_params(axis='x', labelsize=10)
+ax.tick_params(axis='y', labelsize=10)
+plt.show()
+
+# 화면 4분할 그래프
+col_years = list(map(str,range(1970,2018)))
+df_4 = df_seoul.loc[['충청남도','경상북도','강원도','전라남도'],col_years]
+
+plt.style.use('ggplot')
+fig = plt.figure(figsize=(20,10))
+ax1 = fig.add_subplot(2,2,1)
+ax2 = fig.add_subplot(2,2,2)
+ax3 = fig.add_subplot(2,2,3)
+ax4 = fig.add_subplot(2,2,4)
+
+ax1.plot(col_years, df_4.loc['충청남도',:],marker='o', markerfacecolor='green',
+        markersize=10,color='olive',linewidth=2,label='서울 -> 충남')
+ax2.plot(col_years, df_4.loc['경상북도',:],marker='o', markerfacecolor='blue',
+        markersize=10,color='skyblue',linewidth=2,label='서울 -> 경북')
+ax3.plot(col_years, df_4.loc['강원도',:],marker='o', markerfacecolor='red',
+        markersize=10,color='magenta',linewidth=2,label='서울 -> 강원')
+ax4.plot(col_years, df_4.loc['전라남도',:],marker='o', markerfacecolor='orange',
+        markersize=10,color='yellow',linewidth=2,label='서울 -> 전남')
+
+ax1.legend(loc='best')
+ax2.legend(loc='best')
+ax3.legend(loc='best')
+ax4.legend(loc='best')
+
+ax1.set_title('서울 -> 충남 인구 이동', size=15)
+ax2.set_title('서울 -> 경북 인구 이동', size=15)
+ax3.set_title('서울 -> 강원 인구 이동', size=15)
+ax4.set_title('서울 -> 전남 인구 이동', size=15)
+
+ax1.set_xticklabels(col_years,rotation=90)
+ax2.set_xticklabels(col_years,rotation=90)
+ax3.set_xticklabels(col_years,rotation=90)
+ax4.set_xticklabels(col_years,rotation=90)
+
+plt.show()
+
+# matplotlib 스타일 리스트 출력
+import matplotlib
+colors={}
+for name, hex in matplotlib.colors.cnames.items():
+    colors[name] = hex
+print(colors)
 
