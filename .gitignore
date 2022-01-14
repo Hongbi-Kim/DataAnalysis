@@ -5,6 +5,9 @@
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
 
+visitors_files
+file_path
+
 *exe
 
 .ipynb_checkpoints
