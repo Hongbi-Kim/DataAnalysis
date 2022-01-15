@@ -9,7 +9,7 @@ visitors_files
 file_path
 
 *exe
-
+*.git
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
