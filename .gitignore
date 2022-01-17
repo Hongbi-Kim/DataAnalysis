@@ -8,6 +8,8 @@
 visitors_files
 file_path
 
+*csv
+*xlsx
 *exe
 *.git
 .ipynb_checkpoints
