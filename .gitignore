@@ -10,6 +10,10 @@ file_path
 
 *csv
 *xlsx
+*html
+*json
+*png
+
 *exe
 *.git
 .ipynb_checkpoints
