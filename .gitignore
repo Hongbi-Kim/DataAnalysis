@@ -9,14 +9,15 @@ visitors_files
 file_path
 
 5-2. 지도_시각화.ipynb # API 때문에
+C:/Users/khb16/Desktop/code/DA/데이터분석_실무파이썬_강아지/5-2. 지도_시각화.ipynb
 
-*csv
-*xlsx
-*html
-*json
-*png
+*.csv
+*.xlsx
+*.html
+*.json
+*.png
 
-*exe
+*.exe
 *.git
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
